@@ -6,4 +6,5 @@
 /.idea
 /.virtualenv
 /.venv
+/packages/*/*.tar.gz
 __pycache__
