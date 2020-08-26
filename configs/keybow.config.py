@@ -1,3 +1,3 @@
 hostname = 'keybow'
-packages = ['keybow']
+packages = ['net', 'ssh', 'keybow']
 kernels = ['keybow']

@@ -1,9 +1,9 @@
 [Unit]
-Description=Keybow Python Daemon
+Description=Keybow Daemon
 After=usb-gadget.service
 
 [Service]
-ExecStart=/usr/bin/keybow
+ExecStart=/start.sh
 Restart=on-failure
 RestartSec=5
 

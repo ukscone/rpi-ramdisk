@@ -26,15 +26,15 @@ from ... import sysroot
 env = sysroot.env.copy()
 
 stage = this_dir / 'stage'
-init = this_dir / 'init'
+start = this_dir / 'start.sh'
 service_files = [this_dir / s for s in services]
 
-@command(produces=[package['target']], consumes=service_files + [init, sysroot.toolchain, sysroot.sysroot])
+@command(produces=[package['target']], consumes=service_files + [start, sysroot.toolchain, sysroot.sysroot])
 def build():
     call([
         f'rm -rf --one-file-system {stage}',
         f'mkdir -p {stage}',
-        f'cp {init} {stage}',
+        f'cp {start} {stage}',
         f'mkdir -p {stage}/etc/systemd/system',
         f'cp {" ".join(str(s) for s in service_files)} {stage}/etc/systemd/system/',
         f'tar -C {stage} -czf {package["target"]} .',
